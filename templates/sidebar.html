@@ -1,0 +1,34 @@
+{% block sidebar %}
+{% block sidebar_search %}
+<!--
+<section>
+    <form class="inline">
+        <button type="submit" class="btn">Search</button>
+        <div>
+            <input type="text" id="query" placeholder="Search spectaclelabs.org" />
+        </div>
+    </form>
+</section>
+-->
+{% endblock %}
+{% block sidebar_blog %}
+<section>
+    <h3>On the blog</h3>
+    {% for post in (site.categories["blog"] | sort(attribute='date', reverse=True))[:3] %}
+    <article class="small">
+        <h4><a href="{{ post.url|strip_index }}">{{ post.title }}</a></h4>
+        {% include "post-meta.html" %}
+        <p>
+            {{ post.content | striptags | truncate }}
+        </p>
+    </article>
+    {% endfor %}
+</section>
+{% endblock %}
+{% block sidebar_twitter %}
+<section>
+    <h3>On Twitter</h3>
+    <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/spectaclelabs"  data-widget-id="311499720843460608"></a>
+</section>
+{% endblock %}
+{% endblock %}

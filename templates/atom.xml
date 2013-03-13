@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>{{ site.title }}</title>
+    <link href="{{ site.url }}/feed" rel="self"/>
+    <link href="{{ site.url }}/"/>
+    <updated>{{ site.datetime.strftime("%Y-%m-%dT%H:%M:%SZ") }}</updated>
+    <id>{{ site.url }}</id>
+    <author>
+        <name>{{ site.author }}</name>
+        <email>{{ site.author_email }}</email>
+    </author>
+
+    {% for post in (site.categories["blog"] | sort(attribute='date', reverse=True))[:25] %}
+    <entry>
+        <title>{{ post.title | escape }}</title>
+        <link href="{{ site.url }}{{ post.url | strip_index }}"/>
+        <updated>{{ post.datetime.strftime("%Y-%m-%dT%H:%M:%SZ") }}</updated>
+        <id>{{ site.url }}{{ post.url | strip_index }}</id>
+        <content type="html">{{ post.content | escape }}</content>
+    </entry>
+    {% endfor %}
+</feed>
+

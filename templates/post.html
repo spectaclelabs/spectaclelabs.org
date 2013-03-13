@@ -1,0 +1,10 @@
+<article>
+    <h2>
+        <a href="{{ post.url|strip_index }}">
+            {{ post.title }}
+        </a>
+    </h2>
+    {% include "post-meta.html" %}
+    {{ post.content }}
+</article>
+

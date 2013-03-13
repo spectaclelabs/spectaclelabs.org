@@ -1,0 +1,28 @@
+{% extends "default.html" %}
+
+{% block content %}
+{% for post in pagination.page_items %}
+{% include "post.html" %}
+{% if not loop.last %}
+{% endif %}
+{% endfor %}
+
+{% if pagination.next_page or pagination.prev_page %}
+<div id="pagination">
+    {% if pagination.next_page %}
+    <p class="left-float">
+        <a href="{{ pagination.next_page.url }}">
+            <i class="icon-chevron-left"></i> Older
+        </a>
+    </p>
+    {% endif %}
+    {% if pagination.prev_page %}
+    <p class="right-float">
+        <a href="{{ pagination.prev_page.url }}">
+            Newer <i class="icon-chevron-right"></i>
+        </a>
+    </p>
+    {% endif %}
+</div>
+{% endif %}
+{% endblock %}

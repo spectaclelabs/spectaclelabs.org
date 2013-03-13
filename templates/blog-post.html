@@ -1,0 +1,7 @@
+{% extends "default.html" %}
+
+{% block content %}
+{% set post = page %}
+{% include "post.html" %}
+{% include "post-comments.html" %}
+{% endblock %}
