@@ -4,7 +4,7 @@ import os
 import os.path
 import shutil
 
-def process_less(output_path):
+def process_less(config, output_path):
     less_path = os.path.join(output_path, "less")
     include_path = os.path.join(less_path, "include")
     css_path = os.path.join(output_path, "css")
