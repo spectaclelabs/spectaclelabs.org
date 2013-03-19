@@ -7,7 +7,8 @@
 @red: #FF7F7F;
 @light-red: #FFDFDF;
 @blue: #7F7FFF;
-@light-blue: #DFFFFF;
+@light-blue: #DFDFFF;
+@very-light-blue: #F0F0FF;
 @black: #000000;
 @light-grey: #DFDFDF;
 @white: #FFFFFF;
@@ -16,6 +17,7 @@
 
 @body-font: Dosis, "Helvetica Neue", Arial, Helvetica, sans-serif;
 @heading-font: KnewaveRegular, "Helvetica Neue", Arial, Helvetica, sans-serif;
+@mono-font: 'Ubuntu Mono', monospace;
 
 /* Grid */
 @columns: 12;
@@ -41,7 +43,7 @@ body {
 }
 
 /* Bottom margins */
-h2, h3, h4, h5, h6, p, table, form {
+h2, h3, h4, h5, h6, p, table, form, figure, div.video-container {
     margin-top: 0;
     margin-bottom: 1em;
 }
@@ -150,6 +152,45 @@ img.center {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+figure {
+}
+
+figure img {
+}
+
+figcaption {
+    border-left: 5px solid @red;
+    padding-left: 5px;
+}
+
+/* Videos */
+div.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; height: 0; overflow: hidden;
+}
+
+div.video-container iframe,
+div.video-container object,
+div.video-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Code */
+pre {
+    background-color: @very-light-blue;
+    border: @light-border;
+    padding: 10px;
+}
+
+code {
+    font-family: @mono-font;
 }
 
 /* Forms */
